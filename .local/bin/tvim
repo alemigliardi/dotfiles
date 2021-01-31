@@ -1,0 +1,5 @@
+#!/bin/sh
+# This is ugly af but damn xdg-open won't allow me to use " inside .desktop files
+#    and I need the " to make vim open a new file, otherwise i3-sensible-terminal -e vim %F will
+#    just open a new blank screen of vim. This solution sucks
+i3-sensible-terminal -e "vim '$@'" 2> /dev/null

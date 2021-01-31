@@ -1,0 +1,7 @@
+configuration {
+  modi: "window,drun,ssh,combi";
+  combi-modi: "window,drun,ssh";
+  terminal: "termite";
+  ssh-command: "{terminal} -e \"{ssh-client} {host}\"";
+  theme: "accent";
+}

@@ -1,0 +1,83 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+        colors = true
+        interval = 5
+	color_good = "#81a1c1"
+	color_degraded = "#ebcb8b"
+	color_bad = "#bf616a"
+	separator = ""
+}
+
+order += "wireless wlp2s0"
+order += "ethernet eno1"
+order += "disk /"
+order += "memory"
+order += "cpu_usage"
+# order += "read_file UPTIME"
+order += "battery 0"
+order += "volume master"
+order += "tztime local"
+
+# read_file UPTIME{
+#	path = "/proc/uptime"
+#	format = "%content"
+# }
+
+volume master {
+        format = "♪ %volume"
+        format_muted = "[♪ %volume]"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
+
+wireless wlp2s0 {
+        format_up = "⇅ %ip (%quality @ %essid)"
+        format_down = "⇅ down"
+}
+
+ethernet eno1 {
+        # if you use %speed, i3status requires root privileges
+        format_up = "⇄ %ip (%speed)"
+        format_down = "⇄ down"
+}
+
+memory {
+	format = "▷ %available"
+	format_degraded = "▷ %available [%percentage_available]"
+	threshold_degraded = 50%
+	threshold_critical = 1G
+
+}
+
+cpu_usage {
+	format = "⚒ %usage"
+	max_threshold = 80
+	format_above_threshold = "⚒ %cpu0|%cpu1 %cpu2|%cpu3"
+	degraded_threshold = 50
+	format_above_degraded_threshold =  "⚒ %cpu0|%cpu1 %cpu2|%cpu3"
+}
+
+battery 0 {
+	format = "⚡ %percentage (%status%remaining) ⚙️ %consumption"
+	status_bat = ""
+	status_chr = "CHR "
+	status_full = "FULL"
+}
+
+tztime local {
+        format = "⊙ %a, %d %b %Y | %H:%M |"
+}
+
+disk "/" {
+        format = "⍓ %avail"
+	format_below_threshold = "⍓ %avail [%percentage_avail]"
+	low_threshold = 25
+}
