@@ -37,9 +37,3 @@ text/x-tex=vim-terminal.desktop
 text/x-c=vim-terminal.desktop
 text/x-c++=vim-terminal.desktop
 application/x-shellscript=vim-terminal.desktop
-
-x-scheme-handler/tg=userapp-Telegram Desktop-K7CEW0.desktop
-
-[Added Associations]
-x-scheme-handler/tg=userapp-Telegram Desktop-C7VEV0.desktop;userapp-Telegram Desktop-YLNCV0.desktop;userapp-Telegram Desktop-CRTDW0.desktop;userapp-Telegram Desktop-NMHEW0.desktop;userapp-Telegram Desktop-IO2IW0.desktop;userapp-Telegram Desktop-S6FAW0.desktop;userapp-Telegram Desktop-TMTZV0.desktop;userapp-Telegram Desktop-MQXHW0.desktop;userapp-Telegram Desktop-K7CEW0.desktop;
-application/pdf=firefox-developer-edition.desktop;
