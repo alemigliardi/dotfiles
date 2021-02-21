@@ -34,12 +34,16 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 Plug 'alemigliardi/vim-combo'
+Plug 'frazrepo/vim-rainbow'
+" Plug 'ycm-core/YouCompleteMe'
 call plug#end()
 
 let g:ale_set_balloons = 1
 let g:ale_set_highlights = 0
+let g:ale_enabled = 0 " default disabled, :ALEEnable to start
+let g:combo = '[0] 0'
 
 function! LinterStatus() abort
     let l:counts = ale#statusline#Count(bufnr(''))
@@ -56,6 +60,10 @@ endfunction
 
 " needed for consistent colors in tmux
 set background=dark 
+" Clear gutter color
+highlight clear SignColumn
+highlight ALEErrorSign guibg=black ctermfg=yellow
+highlight ALEWarningSign guibg=black ctermfg=darkgrey
 
 " Search ctags file
 set tags=./tags;$HOME
@@ -83,8 +91,10 @@ nnoremap <F10> :set hls!<CR>
 nnoremap <F9> :set wrap!<CR>
 nnoremap <F8> :set relativenumber!<CR>
 nnoremap <F7> :Hexmode<CR>
+nnoremap <F6> :RainbowToggle<CR>
 nnoremap <F5> :o<CR>
 nnoremap <C-S> :silent !pipes.sh -p 2<CR>:redraw!<CR>
+nnoremap <C-n> :cnext<CR>
 
 nnoremap <S-Up> <C-u>
 nnoremap <S-Down> <C-d>
@@ -118,8 +128,8 @@ set statusline+=%{g:combo}\
 set statusline+=%#ModeMsg#
 set statusline+=%=
 
-set statusline+=%#Folded#
-set statusline+=\ %{LinterStatus()}\ 
+" set statusline+=%#Folded#
+" set statusline+=\ %{LinterStatus()}\ 
 
 set statusline+=%#DiffAdd#
 set statusline+=\ %p%%
