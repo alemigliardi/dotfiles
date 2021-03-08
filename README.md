@@ -11,7 +11,7 @@ My config files. Mostly the `.config` folder.
 * lf
 * neofetch
 * picom
-* powerline-go
+* powerline-go (disabled by default)
 * radare2
 * rofi
 * termite

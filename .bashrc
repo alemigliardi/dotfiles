@@ -58,16 +58,16 @@ xterm*|rxvt*)
 esac
 
 # enable Powerline Go
-PWGOMODULES="venv,ssh,cwd,perms,git,hg,jobs,exit,root"
-PWGOTHEME="/home/alemi/.config/powerline-go/custom.json"
-
-function _update_ps1() {
-    PS1="$(powerline-go -ignore-repos $HOME -modules $PWGOMODULES -max-width 80 -theme $PWGOTHEME -error $?)"
-}
-
-if [ "$TERM" != "linux" ]; then
-    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-fi
+# PWGOMODULES="venv,ssh,cwd,perms,git,hg,jobs,exit,root"
+# PWGOTHEME="/home/alemi/.config/powerline-go/custom.json"
+# 
+# function _update_ps1() {
+#     PS1="$(powerline-go -ignore-repos $HOME -modules $PWGOMODULES -max-width 80 -theme $PWGOTHEME -error $?)"
+# }
+# 
+# if [ "$TERM" != "linux" ]; then
+#     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+# fi
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
