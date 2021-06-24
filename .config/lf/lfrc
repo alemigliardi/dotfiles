@@ -1,0 +1,44 @@
+# lf settings
+# github.com/rafi/.config
+
+set shell bash
+# set shellopts '-eu'
+# set ifs "\n"
+
+# set color256
+# set icons
+set incsearch
+set scrolloff 4
+set tabstop 2
+set smartcase
+set dircounts
+set info size
+set sortby natural
+set ratios '1:2:3'
+set timefmt '2006-01-02 15:04:05 -0700'
+set promptfmt "\033[31;1m%u@%h\033[0m:\033[34;1m%w\033[0m\033[1m%f\033[0m"
+# set previewer "/home/alemi/.config/lf/previewer.sh"
+
+# open machanisms
+map <enter> open
+map <tab> $vim "$f"
+map o $$PAGER "$f"
+map w $$SHELL
+map i %file $f
+map I $printf "$(file $f)\n\n$(stat $f)" | less
+map H :set hidden!
+
+# deletion
+map D delete
+
+# general utilities
+# ---
+map A rename
+map . set hidden!
+map au !du -hsx $f | sort -rh | less
+
+# create directory/file
+map ad push $mkdir<space>
+map af push $touch<space>
+
+#  vim: set ts=2 sw=2 tw=80 noet :
