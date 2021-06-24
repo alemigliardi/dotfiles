@@ -22,24 +22,27 @@ set undodir=~/.vim/undo/
 set tabstop=4 shiftwidth=4
 set autoindent
 set mouse=a
+set ttymouse=sgr
 set laststatus=2
 set wildmode=longest,list,full
 set wildmenu
 
-" Auto install vim-plug
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+" Vim Plug Autoinstall
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/.vim/plugged')
-" Plug 'dense-analysis/ale'
 Plug 'alemigliardi/vim-combo'
-Plug 'frazrepo/vim-rainbow'
+Plug 'luochen1990/rainbow'
+Plug 'mtdl9/vim-log-highlighting'
 " Plug 'ycm-core/YouCompleteMe'
+" Plug 'dense-analysis/ale'
 call plug#end()
 
+let g:rainbow_active = 1
 let g:ale_set_balloons = 1
 let g:ale_set_highlights = 0
 let g:ale_enabled = 0 " default disabled, :ALEEnable to start
@@ -106,6 +109,11 @@ let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
 
+" Line number style
+hi CursorLineNr cterm=bold ctermfg=11 ctermbg=0
+hi CursorLine cterm=none
+set cursorline
+
 " Used to avoid triggering autocompletion
 " inoremap <localleader><Tab> <Tab>
 
@@ -128,8 +136,8 @@ set statusline+=%{g:combo}\
 set statusline+=%#ModeMsg#
 set statusline+=%=
 
-" set statusline+=%#Folded#
-" set statusline+=\ %{LinterStatus()}\ 
+set statusline+=%#Folded#
+set statusline+=\ %{LinterStatus()}\ 
 
 set statusline+=%#DiffAdd#
 set statusline+=\ %p%%
