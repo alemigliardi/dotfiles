@@ -136,8 +136,8 @@ set statusline+=%{g:combo}\
 set statusline+=%#ModeMsg#
 set statusline+=%=
 
-set statusline+=%#Folded#
-set statusline+=\ %{LinterStatus()}\ 
+" set statusline+=%#Folded#
+" set statusline+=\ %{LinterStatus()}\ 
 
 set statusline+=%#DiffAdd#
 set statusline+=\ %p%%
