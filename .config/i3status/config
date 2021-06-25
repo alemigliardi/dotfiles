@@ -66,7 +66,7 @@ cpu_usage {
 }
 
 battery 0 {
-	format = "⚡ %percentage (%status%remaining) ⚙️ %consumption"
+	format = "🗲 %percentage (%status%remaining) ∮ %consumption"
 	status_bat = ""
 	status_chr = "CHR "
 	status_full = "FULL"
